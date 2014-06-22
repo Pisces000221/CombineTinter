@@ -1,7 +1,12 @@
 #include "StartupScene.h"
+#include "GameScene.h"
 #include "MenuItemLabelTint.h"
+#include "Bubble.h"
 #include "Global.h"
 using namespace cocos2d;
+
+#define RAND_0_1 ((float)rand() / RAND_MAX)
+#define RAND_C4F cocos2d::Color4F(RAND_0_1, RAND_0_1, RAND_0_1, 1)
 
 bool Startup::init()
 {
@@ -23,6 +28,15 @@ bool Startup::init()
             }
         }), nullptr));
 
+    // The popping bubble
+    auto bubble = Bubble::create(20, RAND_C4F);
+    bubble->setNormalizedPosition(Vec2(0.8, 0.95));
+    bubble->setScale(0);
+    bubble->runAction(Sequence::create(
+        DelayTime::create(1.5),
+        EaseElasticOut::create(ScaleTo::create(0.7, 1)), nullptr));
+    this->addChild(bubble);
+
     auto newGameMenu = MenuItemLabelTint::create(
         ctinter::label("New game", 36, false, Color3B::BLACK), CC_CALLBACK_1(Startup::newGame, this));
     newGameMenu->setNormalizedPosition(Vec2(0.5, 0.618));
@@ -40,5 +54,6 @@ bool Startup::init()
 
 void Startup::newGame(Ref *sender)
 {
-    CCLOG("New game");
+    auto nextScene = Gameplay::createScene();
+    Director::getInstance()->pushScene(TransitionCrossFade::create(0.8, nextScene));
 }

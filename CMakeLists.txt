@@ -61,7 +61,9 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/scenes/SplashScene.cpp
   Classes/scenes/StartupScene.cpp
+  Classes/scenes/GameScene.cpp
   Classes/widgets/MenuItemLabelTint.cpp
+  Classes/widgets/Bubble.cpp
 )
 elseif ( WIN32 )
 set(GAME_SRC
@@ -72,7 +74,9 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/scenes/SplashScene.cpp
   Classes/scenes/StartupScene.cpp
+  Classes/scenes/GameScene.cpp
   Classes/widgets/MenuItemLabelTint.cpp
+  Classes/widgets/Bubble.cpp
 )
 endif()
 
