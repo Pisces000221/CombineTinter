@@ -10,6 +10,9 @@ public:
     virtual bool init();  
     CREATE_FUNC(Gameplay);
     SCENE_FUNC(Gameplay);
+
+protected:
+    void goBack(cocos2d::Ref *sender);
 };
 
 #endif

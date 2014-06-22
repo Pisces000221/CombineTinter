@@ -30,7 +30,8 @@ bool Startup::init()
 
     // The popping bubble
     auto bubble = Bubble::create(20, RAND_C4F);
-    bubble->setNormalizedPosition(Vec2(0.8, 0.95));
+    bubble->setAnchorPoint(Vec2::ANCHOR_TOP_RIGHT);
+    bubble->setPosition(Vec2(ctinter::vsize.width - 4, ctinter::vsize.height - 4));
     bubble->setScale(0);
     bubble->runAction(Sequence::create(
         DelayTime::create(1.5),
@@ -55,5 +56,13 @@ bool Startup::init()
 void Startup::newGame(Ref *sender)
 {
     auto nextScene = Gameplay::createScene();
-    Director::getInstance()->pushScene(TransitionCrossFade::create(0.8, nextScene));
+    Director::getInstance()->pushScene(TransitionFade::create(0.8, nextScene, Color3B::WHITE));
+    auto cover = LayerColor::create(Color4B::WHITE);
+    cover->setOpacity(0);
+    this->addChild(cover, INT_MAX);
+    cover->runAction(Sequence::create(
+        DelayTime::create(0.8),
+        CallFunc::create([cover]() { cover->setOpacity(255); }),
+        FadeOut::create(0.4),
+        RemoveSelf::create(), nullptr));
 }

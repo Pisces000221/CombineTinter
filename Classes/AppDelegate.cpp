@@ -14,6 +14,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
+    Device::setAccelerometerEnabled(true);
     ctinter::init();
     // Everything ready, let's go!
     auto scene = Splash::createScene();
