@@ -1,0 +1,7 @@
+*~
+cocos2d/
+linux-build/
+proj.ios_mac/
+proj.win32/
+proj.wp8-xaml/
+publish/
