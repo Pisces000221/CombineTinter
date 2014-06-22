@@ -9,7 +9,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if (!glview) {
-        glview = GLView::create("Combine Tinter PC");
+        glview = GLView::createWithRect("Combine Tinter PC", Rect(0, 0, 480, 320));
         director->setOpenGLView(glview);
     }
     director->setDisplayStats(true);
