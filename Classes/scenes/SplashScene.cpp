@@ -16,7 +16,7 @@ bool Splash::init()
 
     auto label_1 = ctinter::label("Powered by", 35, false);
     label_1->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
-    label_1->setPosition(Vec2(ctinter::vsize.width * 0.65, 108));
+    label_1->setPosition(Vec2(ctinter::vsize.width * 0.65, 55));
     label_1->setColor(Color3B(0, 0, 0));
     this->addChild(label_1);
 

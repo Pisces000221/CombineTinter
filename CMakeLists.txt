@@ -61,6 +61,7 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/scenes/SplashScene.cpp
   Classes/scenes/StartupScene.cpp
+  Classes/widgets/MenuItemLabelTint.cpp
 )
 elseif ( WIN32 )
 set(GAME_SRC
@@ -71,6 +72,7 @@ set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/scenes/SplashScene.cpp
   Classes/scenes/StartupScene.cpp
+  Classes/widgets/MenuItemLabelTint.cpp
 )
 endif()
 
